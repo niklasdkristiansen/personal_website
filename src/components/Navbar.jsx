@@ -21,8 +21,11 @@ function Navbar() {
         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
           About
         </Link>
+        <Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''}>
+          Projects
+        </Link>
         <Link to="/ai-news" className={location.pathname === '/ai-news' ? 'active' : ''}>
-          AI News
+          Resources
         </Link>
       </div>
     </nav>

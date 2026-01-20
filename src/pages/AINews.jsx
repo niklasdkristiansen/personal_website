@@ -1,230 +1,153 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './AINews.css'
 
-// Blog sources configuration
-const BLOG_SOURCES = [
-  {
-    id: 'digitalocean',
-    name: 'DigitalOcean Community',
-    url: 'https://www.digitalocean.com/community/tags/ai',
-    description: 'Practical, hands-on AI tutorials and real-world implementation guidance',
-    audience: 'Developers, DevOps engineers, AI builders',
-    color: '#0080FF',
-    logo: '🌊',
-  },
-  {
-    id: 'bair',
-    name: 'BAIR Blog',
-    url: 'https://bair.berkeley.edu/blog/',
-    description: 'Cutting-edge academic AI research and experimental ideas',
-    audience: 'Researchers, graduate students, advanced AI enthusiasts',
-    color: '#003262',
-    logo: '🎓',
-  },
-  {
-    id: 'openai',
-    name: 'OpenAI Blog',
-    url: 'https://openai.com/blog',
-    description: 'Official research updates, model releases, and AI safety discussions',
-    audience: 'Developers, product leaders, AI practitioners',
-    color: '#10a37f',
-    logo: '🤖',
-  },
-  {
-    id: 'kdnuggets',
-    name: 'KDnuggets',
-    url: 'https://www.kdnuggets.com/',
-    description: 'Broad coverage of data science, ML techniques, tools, and careers',
-    audience: 'Data scientists, ML engineers, career-focused learners',
-    color: '#FF6600',
-    logo: '📊',
-  },
-  {
-    id: 'tds',
-    name: 'Towards Data Science',
-    url: 'https://towardsdatascience.com/',
-    description: 'Applied ML tutorials, explainers, and real-world case studies',
-    audience: 'Intermediate to advanced data scientists',
-    color: '#00C853',
-    logo: '📈',
-  },
-  {
-    id: 'marktechpost',
-    name: 'MarkTechPost',
-    url: 'https://www.marktechpost.com/',
-    description: 'Fast-moving AI research news and technical model breakdowns',
-    audience: 'AI engineers, researchers, technical professionals',
-    color: '#E91E63',
-    logo: '📰',
-  },
-  {
-    id: 'huggingface',
-    name: 'Hugging Face Blog',
-    url: 'https://huggingface.co/blog',
-    description: 'Open-source ML, LLM development, and production workflows',
-    audience: 'ML engineers, NLP researchers, open-source contributors',
-    color: '#FFD21E',
-    logo: '🤗',
-  },
-  {
-    id: 'towardsai',
-    name: 'Towards AI',
-    url: 'https://towardsai.net/',
-    description: 'Learning AI concepts and engaging with the AI community',
-    audience: 'AI enthusiasts, early-career practitioners, self-learners',
-    color: '#7C4DFF',
-    logo: '🧠',
-  },
-  {
-    id: 'holisticai',
-    name: 'Holistic AI',
-    url: 'https://www.holisticai.com/blog',
-    description: 'AI governance, ethics, risk management, and regulation',
-    audience: 'Policy leaders, compliance teams, responsible AI practitioners',
-    color: '#00BCD4',
-    logo: '⚖️',
-  },
-  {
-    id: 'analyticsvidhya',
-    name: 'Analytics Vidhya',
-    url: 'https://www.analyticsvidhya.com/blog/',
-    description: 'Building practical data science and AI skills from the ground up',
-    audience: 'Students, career switchers, early practitioners',
-    color: '#2196F3',
-    logo: '📚',
-  },
-  {
-    id: 'mlmastery',
-    name: 'Machine Learning Mastery',
-    url: 'https://machinelearningmastery.com/blog/',
-    description: 'Step-by-step learning of ML fundamentals and techniques',
-    audience: 'Beginners to intermediate ML learners',
-    color: '#4CAF50',
-    logo: '🎯',
-  },
-  {
-    id: 'anthropic',
-    name: 'Anthropic Blog',
-    url: 'https://www.anthropic.com/news',
-    description: 'Claude best practices, AI research, and AI safety',
-    audience: 'Developers building with Claude, product teams',
-    color: '#D4A574',
-    logo: '🔬',
-  },
+const BLOGS = [
+  { name: 'DigitalOcean Community', url: 'https://www.digitalocean.com/community/tags/ai', desc: 'Hands-on AI tutorials' },
+  { name: 'BAIR Blog', url: 'https://bair.berkeley.edu/blog/', desc: 'Academic AI research' },
+  { name: 'OpenAI Blog', url: 'https://openai.com/blog', desc: 'Research & model releases' },
+  { name: 'KDnuggets', url: 'https://www.kdnuggets.com/', desc: 'Data science & ML' },
+  { name: 'Towards Data Science', url: 'https://towardsdatascience.com/', desc: 'Applied ML tutorials' },
+  { name: 'MarkTechPost', url: 'https://www.marktechpost.com/', desc: 'AI research news' },
+  { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog', desc: 'Open-source ML & LLMs' },
+  { name: 'Towards AI', url: 'https://towardsai.net/', desc: 'AI learning & community' },
+  { name: 'Holistic AI', url: 'https://www.holisticai.com/blog', desc: 'AI governance & ethics' },
+  { name: 'Analytics Vidhya', url: 'https://www.analyticsvidhya.com/blog/', desc: 'Data science skills' },
+  { name: 'Machine Learning Mastery', url: 'https://machinelearningmastery.com/blog/', desc: 'ML fundamentals' },
+  { name: 'Anthropic Blog', url: 'https://www.anthropic.com/news', desc: 'Claude & AI safety' },
 ]
 
+const PODCASTS = [
+  { name: 'How I AI', url: 'https://www.howiai.com/', desc: 'Practical AI workflows with live demos' },
+  { name: 'High Agency', url: 'https://www.highagency.com/', desc: 'Building AI products in production' },
+  { name: 'Latent Space', url: 'https://www.latent.space/', desc: 'AI engineering deep dives' },
+  { name: 'Practical AI', url: 'https://changelog.com/practicalai', desc: 'Making AI practical & accessible' },
+  { name: 'The AI Podcast (Nvidia)', url: 'https://blogs.nvidia.com/ai-podcast/', desc: 'AI impact across industries' },
+  { name: 'Me, Myself, and AI', url: 'https://sloanreview.mit.edu/tag/me-myself-and-ai/', desc: 'MIT Sloan + BCG on AI wins' },
+  { name: 'In Machines We Trust', url: 'https://www.technologyreview.com/inmachineswetrust', desc: 'MIT Tech Review on AI in daily life' },
+  { name: 'DeepMind: The Podcast', url: 'https://www.deepmind.com/the-podcast', desc: 'AI research from Google DeepMind' },
+  { name: 'Eye on AI', url: 'https://www.eye-on.ai/', desc: 'Weekly AI news & analysis' },
+  { name: 'TWIML AI', url: 'https://twimlai.com/', desc: 'This Week in ML & AI' },
+  { name: 'Lex Fridman Podcast', url: 'https://lexfridman.com/podcast/', desc: 'Deep conversations on AI & science' },
+  { name: 'The Robot Brains', url: 'https://www.therobotbrains.ai/', desc: 'Pieter Abbeel interviews AI leaders' },
+  { name: 'The Gradient Podcast', url: 'https://thegradientpub.substack.com/s/podcast', desc: 'Deep technical AI research talks' },
+  { name: 'Data Skeptic', url: 'https://dataskeptic.com/', desc: 'ML, stats & AI theory explained' },
+  { name: 'AI in Business', url: 'https://emerj.com/ai-podcast/', desc: 'AI tactics for business leaders' },
+]
+
+const YOUTUBE = [
+  { name: 'Dave Ebbelaar', url: 'https://www.youtube.com/@daveebbelaar', desc: 'AI engineering & LLM development' },
+  { name: 'Two Minute Papers', url: 'https://www.youtube.com/@TwoMinutePapers', desc: 'AI research in bite-sized videos' },
+  { name: 'DeepLearning.AI', url: 'https://www.youtube.com/@Deeplearningai', desc: 'Andrew Ng\'s career-focused AI courses' },
+  { name: 'AI Explained', url: 'https://www.youtube.com/@aiexplained-official', desc: 'Deep dives into AI developments' },
+  { name: 'Tina Huang', url: 'https://www.youtube.com/@TinaHuang1', desc: 'Data science & AI career growth' },
+  { name: 'The AI Advantage', url: 'https://www.youtube.com/@aiaboratory', desc: 'Practical AI tools & workflows' },
+  { name: 'Skill Leap AI', url: 'https://www.youtube.com/@SkillLeapAI', desc: 'AI tool tutorials & reviews' },
+  { name: 'Wes Roth', url: 'https://www.youtube.com/@WesRoth', desc: 'AGI news & AI breakthroughs' },
+  { name: 'Dwarkesh Patel', url: 'https://www.youtube.com/@DwsarkeshPatel', desc: 'Long-form AI researcher interviews' },
+  { name: 'Siraj Raval', url: 'https://www.youtube.com/@SirajRaval', desc: 'Energetic ML coding tutorials' },
+  { name: 'Matt Wolfe', url: 'https://www.youtube.com/@maboratory', desc: 'AI tools & FutureTools.io' },
+  { name: 'AI Foundations', url: 'https://www.youtube.com/@ai-foundations', desc: 'Vibe coding & AI automation' },
+  { name: 'Alex Finn', url: 'https://www.youtube.com/@AlexFinnAI', desc: 'No-code AI app building' },
+  { name: 'Andrej Karpathy', url: 'https://www.youtube.com/@AndrejKarpathy', desc: 'Former Tesla AI Director\'s tutorials' },
+  { name: '3Blue1Brown', url: 'https://www.youtube.com/@3blue1brown', desc: 'Beautiful math & neural net visuals' },
+]
+
+const ChevronIcon = ({ isOpen }) => (
+  <svg 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2"
+    style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
+  >
+    <polyline points="6 9 12 15 18 9"/>
+  </svg>
+)
+
 const ExternalLinkIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
     <polyline points="15 3 21 3 21 9"/>
     <line x1="10" y1="14" x2="21" y2="3"/>
   </svg>
 )
 
-// Format date for display
-function formatDate(dateString) {
-  if (!dateString) return null
-  try {
-    const date = new Date(dateString)
-    if (isNaN(date.getTime())) {
-      // If it's not a valid date, return the original string (might be "Jan 15, 2026" format)
-      return dateString
-    }
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric',
-      year: 'numeric'
-    })
-  } catch {
-    return dateString
-  }
+function ExpandableSection({ title, emoji, items, comingSoon }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="expandable-section">
+      <button 
+        className={`section-header ${isOpen ? 'open' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="section-title">
+          <span className="section-emoji">{emoji}</span>
+          <span className="section-name">{title}</span>
+          <span className="section-count">{items.length > 0 ? items.length : 'Coming soon'}</span>
+        </div>
+        <ChevronIcon isOpen={isOpen} />
+      </button>
+      
+      {isOpen && (
+        <div className="section-content">
+          {comingSoon || items.length === 0 ? (
+            <p className="coming-soon-text">Coming soon...</p>
+          ) : (
+            <ul className="resource-list">
+              {items.map((item, index) => (
+                <li key={index}>
+                  <a 
+                    href={item.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="resource-link"
+                  >
+                    <div className="resource-info">
+                      <span className="resource-name">{item.name}</span>
+                      <span className="resource-desc">{item.desc}</span>
+                    </div>
+                    <ExternalLinkIcon />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  )
 }
 
 function AINews() {
-  const [postDates, setPostDates] = useState({})
-
-  useEffect(() => {
-    // Fetch from GitHub raw URL (works after first Action run)
-    // Falls back to local file during development
-    const fetchPostDates = async () => {
-      try {
-        // Try GitHub raw URL first
-        const response = await fetch(
-          'https://raw.githubusercontent.com/niklasdkristiansen/personal_website/main/public/posts.json'
-        )
-        if (response.ok) {
-          const data = await response.json()
-          setPostDates(data.blogs || {})
-        }
-      } catch {
-        // Fallback to local file
-        try {
-          const response = await fetch('/posts.json')
-          if (response.ok) {
-            const data = await response.json()
-            setPostDates(data.blogs || {})
-          }
-        } catch {
-          console.log('Could not fetch post dates')
-        }
-      }
-    }
-    fetchPostDates()
-  }, [])
-
   return (
     <div className="ai-news-page">
       {/* Header */}
       <header className="page-header">
-        <div className="header-content">
-          <span className="page-tag">AI News Hub</span>
-          <h1 className="page-title">AI & ML News</h1>
-          <p className="page-subtitle">
-            Curated sources for the latest in AI and machine learning
-          </p>
-        </div>
+        <h1 className="page-title">Staying Up to Date with AI</h1>
+        <p className="page-subtitle">Blogs, podcasts, and channels I follow</p>
       </header>
 
-      {/* Sources Grid */}
-      <section className="sources-section">
-        <div className="sources-container">
-          <div className="sources-grid">
-            {BLOG_SOURCES.map(source => {
-              const postInfo = postDates[source.id]
-              const lastPostDate = postInfo?.lastPost ? formatDate(postInfo.lastPost) : null
-              
-              return (
-                <a 
-                  key={source.id}
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="source-card-large"
-                  style={{ '--source-color': source.color }}
-                >
-                  <div className="source-header">
-                    <span className="source-logo">{source.logo}</span>
-                    <div className="source-info">
-                      <h2 className="source-name">{source.name}</h2>
-                      <p className="source-description">{source.description}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="source-footer">
-                    <div className="source-meta">
-                      <span className="source-audience">{source.audience}</span>
-                      {lastPostDate && (
-                        <span className="source-last-post">Latest: {lastPostDate}</span>
-                      )}
-                    </div>
-                    <span className="source-link-icon">
-                      <ExternalLinkIcon />
-                    </span>
-                  </div>
-                </a>
-              )
-            })}
-          </div>
+      {/* Expandable Sections */}
+      <section className="resources-section">
+        <div className="resources-container">
+          <ExpandableSection 
+            title="Blogs Worth Following" 
+            emoji="📝" 
+            items={BLOGS}
+          />
+          <ExpandableSection 
+            title="Podcasts" 
+            emoji="🎙️" 
+            items={PODCASTS}
+          />
+          <ExpandableSection 
+            title="YouTube Channels" 
+            emoji="📺" 
+            items={YOUTUBE}
+          />
         </div>
       </section>
     </div>
