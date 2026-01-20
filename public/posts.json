@@ -1,18 +1,65 @@
 {
-  "lastUpdated": "2026-01-20T00:00:00.000Z",
+  "lastUpdated": "2026-01-20T20:31:46.958Z",
   "blogs": {
-    "digitalocean": { "name": "DigitalOcean Community", "lastPost": null, "checkedAt": null },
-    "bair": { "name": "BAIR Blog", "lastPost": null, "checkedAt": null },
-    "openai": { "name": "OpenAI Blog", "lastPost": null, "checkedAt": null },
-    "kdnuggets": { "name": "KDnuggets", "lastPost": null, "checkedAt": null },
-    "tds": { "name": "Towards Data Science", "lastPost": null, "checkedAt": null },
-    "marktechpost": { "name": "MarkTechPost", "lastPost": null, "checkedAt": null },
-    "huggingface": { "name": "Hugging Face Blog", "lastPost": null, "checkedAt": null },
-    "towardsai": { "name": "Towards AI", "lastPost": null, "checkedAt": null },
-    "holisticai": { "name": "Holistic AI", "lastPost": null, "checkedAt": null },
-    "analyticsvidhya": { "name": "Analytics Vidhya", "lastPost": null, "checkedAt": null },
-    "mlmastery": { "name": "Machine Learning Mastery", "lastPost": null, "checkedAt": null },
-    "anthropic": { "name": "Anthropic Blog", "lastPost": null, "checkedAt": null }
+    "digitalocean": {
+      "name": "DigitalOcean Community",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:31:50.626Z"
+    },
+    "bair": {
+      "name": "BAIR Blog",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:31:54.199Z"
+    },
+    "openai": {
+      "name": "OpenAI Blog",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:31:57.408Z"
+    },
+    "kdnuggets": {
+      "name": "KDnuggets",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:32:00.828Z"
+    },
+    "tds": {
+      "name": "Towards Data Science",
+      "lastPost": "2026-01-20T11:30:00-05:00",
+      "checkedAt": "2026-01-20T20:32:05.020Z"
+    },
+    "marktechpost": {
+      "name": "MarkTechPost",
+      "lastPost": "2026-01-20T11:54:29-08:00",
+      "checkedAt": "2026-01-20T20:32:08.635Z"
+    },
+    "huggingface": {
+      "name": "Hugging Face Blog",
+      "lastPost": "2026-01-15T04:51:08",
+      "checkedAt": "2026-01-20T20:32:12.209Z"
+    },
+    "towardsai": {
+      "name": "Towards AI",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:32:15.805Z"
+    },
+    "holisticai": {
+      "name": "Holistic AI",
+      "lastPost": "AI Tracer",
+      "checkedAt": "2026-01-20T20:32:19.919Z"
+    },
+    "analyticsvidhya": {
+      "name": "Analytics Vidhya",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:32:24.812Z"
+    },
+    "mlmastery": {
+      "name": "Machine Learning Mastery",
+      "lastPost": null,
+      "checkedAt": "2026-01-20T20:32:28.713Z"
+    },
+    "anthropic": {
+      "name": "Anthropic Blog",
+      "lastPost": "Nov 24, 2025",
+      "checkedAt": "2026-01-20T20:32:32.084Z"
+    }
   }
 }
-
