@@ -1,0 +1,81 @@
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+  /* Colors - Warm dark theme with coral accent */
+  --bg-primary: #0d0d0f;
+  --bg-secondary: #141418;
+  --bg-card: #1a1a1f;
+  --bg-card-hover: #222228;
+  
+  --text-primary: #fafafa;
+  --text-secondary: #a8a8b3;
+  --text-muted: #6b6b76;
+  
+  --accent-primary: #ff6b4a;
+  --accent-secondary: #ff8f73;
+  --accent-glow: rgba(255, 107, 74, 0.4);
+  
+  --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #0d0d0f 50%, #1a0f0d 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 107, 74, 0.08) 0%, transparent 50%);
+  
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Instrument Serif', Georgia, serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
