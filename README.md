@@ -1,4 +1,4 @@
-# niklasdkristiansen.com
+# niklaskristiansen.com
 
 My personal website. Built with React + Vite.
 
