@@ -17,21 +17,15 @@ const BLOGS = [
 ]
 
 const PODCASTS = [
-  { name: 'How I AI', url: 'https://www.howiai.com/', desc: 'Practical AI workflows with live demos' },
-  { name: 'High Agency', url: 'https://www.highagency.com/', desc: 'Building AI products in production' },
+  { name: 'The AI Daily Brief', url: 'https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614', desc: 'Daily AI news & analysis' },
   { name: 'Latent Space', url: 'https://www.latent.space/', desc: 'AI engineering deep dives' },
   { name: 'Practical AI', url: 'https://changelog.com/practicalai', desc: 'Making AI practical & accessible' },
   { name: 'The AI Podcast (Nvidia)', url: 'https://blogs.nvidia.com/ai-podcast/', desc: 'AI impact across industries' },
-  { name: 'Me, Myself, and AI', url: 'https://sloanreview.mit.edu/tag/me-myself-and-ai/', desc: 'MIT Sloan + BCG on AI wins' },
-  { name: 'In Machines We Trust', url: 'https://www.technologyreview.com/inmachineswetrust', desc: 'MIT Tech Review on AI in daily life' },
-  { name: 'DeepMind: The Podcast', url: 'https://www.deepmind.com/the-podcast', desc: 'AI research from Google DeepMind' },
+  { name: 'DeepMind: The Podcast', url: 'https://deepmind.google/the-podcast/', desc: 'AI research from Google DeepMind' },
   { name: 'Eye on AI', url: 'https://www.eye-on.ai/', desc: 'Weekly AI news & analysis' },
   { name: 'TWIML AI', url: 'https://twimlai.com/', desc: 'This Week in ML & AI' },
   { name: 'Lex Fridman Podcast', url: 'https://lexfridman.com/podcast/', desc: 'Deep conversations on AI & science' },
-  { name: 'The Robot Brains', url: 'https://www.therobotbrains.ai/', desc: 'Pieter Abbeel interviews AI leaders' },
   { name: 'The Gradient Podcast', url: 'https://thegradientpub.substack.com/s/podcast', desc: 'Deep technical AI research talks' },
-  { name: 'Data Skeptic', url: 'https://dataskeptic.com/', desc: 'ML, stats & AI theory explained' },
-  { name: 'AI in Business', url: 'https://emerj.com/ai-podcast/', desc: 'AI tactics for business leaders' },
 ]
 
 const YOUTUBE = [
@@ -40,14 +34,12 @@ const YOUTUBE = [
   { name: 'DeepLearning.AI', url: 'https://www.youtube.com/@Deeplearningai', desc: 'Andrew Ng\'s career-focused AI courses' },
   { name: 'AI Explained', url: 'https://www.youtube.com/@aiexplained-official', desc: 'Deep dives into AI developments' },
   { name: 'Tina Huang', url: 'https://www.youtube.com/@TinaHuang1', desc: 'Data science & AI career growth' },
-  { name: 'The AI Advantage', url: 'https://www.youtube.com/@aiaboratory', desc: 'Practical AI tools & workflows' },
   { name: 'Skill Leap AI', url: 'https://www.youtube.com/@SkillLeapAI', desc: 'AI tool tutorials & reviews' },
   { name: 'Wes Roth', url: 'https://www.youtube.com/@WesRoth', desc: 'AGI news & AI breakthroughs' },
-  { name: 'Dwarkesh Patel', url: 'https://www.youtube.com/@DwsarkeshPatel', desc: 'Long-form AI researcher interviews' },
+  { name: 'Dwarkesh Patel', url: 'https://www.youtube.com/@DwarkeshPatel', desc: 'Long-form AI researcher interviews' },
   { name: 'Siraj Raval', url: 'https://www.youtube.com/@SirajRaval', desc: 'Energetic ML coding tutorials' },
-  { name: 'Matt Wolfe', url: 'https://www.youtube.com/@maboratory', desc: 'AI tools & FutureTools.io' },
+  { name: 'Matt Wolfe', url: 'https://www.youtube.com/@MattVidPro', desc: 'AI tools & FutureTools.io' },
   { name: 'AI Foundations', url: 'https://www.youtube.com/@ai-foundations', desc: 'Vibe coding & AI automation' },
-  { name: 'Alex Finn', url: 'https://www.youtube.com/@AlexFinnAI', desc: 'No-code AI app building' },
   { name: 'Andrej Karpathy', url: 'https://www.youtube.com/@AndrejKarpathy', desc: 'Former Tesla AI Director\'s tutorials' },
   { name: '3Blue1Brown', url: 'https://www.youtube.com/@3blue1brown', desc: 'Beautiful math & neural net visuals' },
 ]
