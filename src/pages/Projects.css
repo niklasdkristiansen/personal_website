@@ -39,7 +39,7 @@
 /* Project Card */
 .project-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-lg);
   padding: var(--space-lg) var(--space-xl);
   background: rgba(255, 255, 255, 0.02);
@@ -81,6 +81,15 @@
   font-family: var(--font-display);
   font-size: 0.85rem;
   color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.project-tech {
+  font-family: var(--font-mono, var(--font-display));
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  opacity: 0.75;
 }
 
 .project-card svg {
@@ -88,6 +97,7 @@
   opacity: 0.5;
   transition: all var(--transition-fast);
   flex-shrink: 0;
+  margin-top: 4px;
 }
 
 /* Responsive */

@@ -2,10 +2,25 @@ import './Projects.css'
 
 const PROJECTS = [
   {
+    name: 'AutoStox',
+    url: 'https://staging.autostox.ai',
+    tagline: 'AI-driven stock research and automated trading',
+    tech: '.NET 10 / Angular 19 full-stack with Python research sandbox (FastAPI, scikit-learn, yfinance); PostgreSQL on GKE via Terraform + Cloud Build',
+    emoji: '📈'
+  },
+  {
     name: 'PlayGames.social',
     url: 'https://playgames.social',
-    desc: 'Multiplayer games - competitive and collaborative',
+    tagline: 'Real-time multiplayer Sudoku and GeoGuess',
+    tech: 'Next.js 15 / React 19 + FastAPI with native WebSockets, PostgreSQL, Clerk auth, Azure App Service',
     emoji: '🎮'
+  },
+  {
+    name: 'stamina-buyer',
+    url: 'https://github.com/niklasdkristiansen/stamina-buyer',
+    tagline: 'Desktop automation for in-game purchases',
+    tech: 'Python OpenCV + pyautogui automation; Typer CLI + customtkinter GUI, packaged with Hatch and PyInstaller',
+    emoji: '🤖'
   }
 ]
 
@@ -38,7 +53,8 @@ function Projects() {
               <div className="project-emoji">{project.emoji}</div>
               <div className="project-info">
                 <h2 className="project-name">{project.name}</h2>
-                <p className="project-desc">{project.desc}</p>
+                <p className="project-desc">{project.tagline}</p>
+                <p className="project-tech">{project.tech}</p>
               </div>
               <ExternalLinkIcon />
             </a>
